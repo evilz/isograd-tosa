@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>TOSA.SablesMouvants.Program</StartupObject>
+    <StartupObject>TOSA.JeuDeLaVie.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -51,7 +51,8 @@
     <Compile Include="MEILLEUR-DEV-DE-FRANCE-MARS-2015\SalesForce.cs" />
     <Compile Include="MEILLEUR-DEV-DE-FRANCE-MARS-2015\Ralonges.cs" />
     <Compile Include="MEILLEUR-DEV-DE-FRANCE-MARS-2015\SablesMouvants.cs" />
-    <Compile Include="MEILLEUR-DEV-DE-FRANCE-MARS-2015\TEMPLATE.cs" />
+    <Compile Include="MEILLEUR-DEV-DE-FRANCE-MARS-2015\JeuDeLaVie.cs" />
+    <Compile Include="TEMPLATE.cs" />
     <Compile Include="MEILLEUR-DEV-DE-FRANCE-MARS-2015\Poker.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
