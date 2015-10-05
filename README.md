@@ -1,2 +1,8 @@
-# isograd-tosa
-coucours du meilleur dev
+﻿# TOSA / Isograd contest
+
+1. BATTLE ISOGRAD TEST
+2. BATTLE DEV ESILV
+
+
+
+
