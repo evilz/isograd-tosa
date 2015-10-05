@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>TOSA.JeuDeLaVie.Program</StartupObject>
+    <StartupObject>TOSA.DetectionDeSession.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BATTLE-DEV-ESILV\DetectionDeSession.cs" />
     <Compile Include="MEILLEUR-DEV-DE-FRANCE-MARS-2015\CloudTag.cs" />
     <Compile Include="MEILLEUR-DEV-DE-FRANCE-MARS-2015\HashtagsTrendings.cs" />
     <Compile Include="MEILLEUR-DEV-DE-FRANCE-MARS-2015\SalesForce.cs" />
@@ -60,11 +61,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="BATTLE-DEV-ESILV\README.md" />
     <None Include="MEILLEUR-DEV-DE-FRANCE-MARS-2015\README.md" />
+    <None Include="README.md" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BATTLE-DEV-ESILV\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

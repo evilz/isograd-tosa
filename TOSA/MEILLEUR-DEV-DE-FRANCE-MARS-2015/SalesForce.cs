@@ -6,16 +6,7 @@ namespace TOSA.SalesForce
 {
     public class Program
     {
-        private class Client
-        {
-            public string Nom;
-            public string Prénom;
-            public string Société;
-            public string Téléphone;
-            public string Pays;
-
-        }
-
+       
         static void Main(string[] args)
         {
             var input = Console.In;
@@ -25,7 +16,7 @@ namespace TOSA.SalesForce
 
             var clients = Enumerable.Range(0, linesCount)
                 .Select(i => input.ExtractValues<string>(';').ToArray())
-                .Select(client => new Client
+                .Select(client => new 
                 {
                     Nom = client[0],
                     Prénom = client[1],
