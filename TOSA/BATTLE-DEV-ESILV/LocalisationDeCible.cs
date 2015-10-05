@@ -4,16 +4,16 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 
-namespace TOSA.BATTLEDEVESILV.DetectionDeSession
+namespace TOSA.BATTLEDEVESILV.LocalisationDeCible
 {
     public class Program
     {
         static void Main(string[] args)
         {
 
-            //var sample = "1 2 9 A B 11 3 4 5";
-            //var input = new StringReader(sample);
-            var input = Console.In;
+            var sample = "1 2 9 A B 11 3 4 5";
+            var input = new StringReader(sample);
+            //var input = Console.In;
 
             var sequence = input.ReadLine()
                 .Split(' ')

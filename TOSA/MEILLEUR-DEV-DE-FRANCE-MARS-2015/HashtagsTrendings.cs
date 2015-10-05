@@ -23,7 +23,6 @@ namespace TOSA.Trending
                     .Take(60)
                     .GroupBy(s => s)
                     .Where(grouping => grouping.Count() >= 40)
-                    .OrderByDescending(g => g.Count())
                     .Select(grouping => grouping.Key)
                     .FirstOrDefault();
 

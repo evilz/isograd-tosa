@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TOSA</RootNamespace>
     <AssemblyName>TOSA</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,11 +34,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>TOSA.DetectionDeSession.Program</StartupObject>
+    <StartupObject>TOSA.JeuDeLaVie.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BATTLE-DEV-ESILV\LocalisationDeCible.cs" />
     <Compile Include="BATTLE-DEV-ESILV\DetectionDeSession.cs" />
     <Compile Include="MEILLEUR-DEV-DE-FRANCE-MARS-2015\CloudTag.cs" />
     <Compile Include="MEILLEUR-DEV-DE-FRANCE-MARS-2015\HashtagsTrendings.cs" />
@@ -62,6 +65,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="BATTLE-DEV-ESILV\README.md" />
+    <None Include="MEILLEUR-DEV-DE-FRANCE-MARS-2015\JeuDeLaVie.md" />
     <None Include="MEILLEUR-DEV-DE-FRANCE-MARS-2015\README.md" />
     <None Include="README.md" />
   </ItemGroup>

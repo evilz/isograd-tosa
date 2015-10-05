@@ -18,16 +18,15 @@ namespace TOSA.Ralonges
                 .OrderByDescending(ralonge => ralonge.Longueur)
                 .ToLookup(ralonge => ralonge.Type);
 
-
             var maleOnly = ralonges["M-M"].ToArray();
             var femaleOnly = ralonges["F-F"].ToArray();
 
             var maxOnly = Math.Min(maleOnly.Count(), femaleOnly.Count());
 
-            var maxOnlyLongueur = Enumerable.Range(0, maxOnly)
-                 .Select(i => maleOnly[i].Longueur + femaleOnly[i].Longueur)
-                 .Sum();
-
+            var maxOnlyLongueur = 
+                maleOnly.Take(maxOnly).Sum(arg => arg.Longueur)
+                + femaleOnly.Take(maxOnly).Sum(x => x.Longueur);
+               
             var mixLongueur = ralonges["M-F"].Sum(x => x.Longueur) + ralonges["F-M"].Sum(x => x.Longueur);
 
             Console.WriteLine(maxOnlyLongueur + mixLongueur);
