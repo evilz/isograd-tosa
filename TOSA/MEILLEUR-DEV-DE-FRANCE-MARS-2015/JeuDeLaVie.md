@@ -27,7 +27,7 @@ Un entier représentant le temps de survie de la population. Si la population su
 
 ## Exemple
 
-
+[sample](CTSTFR0034-3.png)
 
 Cette génération, désignée sur l'image tout à gauche par le test de 3 rectangles suivant :
 
