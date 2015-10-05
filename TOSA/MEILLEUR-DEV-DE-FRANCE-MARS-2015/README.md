@@ -9,7 +9,7 @@
 - Trending topics
 - Rallonges
 - Sables mouvants
-- Le jeu de la vie
+- [Le jeu de la vie](JeuDeLaVie.md)
 
 
 
