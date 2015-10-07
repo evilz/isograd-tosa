@@ -39,6 +39,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BATTLE-DEV-ESILV\ScoreDeScrabble.cs" />
+    <Compile Include="BATTLE-DEV-ESILV\ExplorationRobotisée.cs" />
     <Compile Include="BATTLE-DEV-ESILV\LocalisationDeCible.cs" />
     <Compile Include="BATTLE-DEV-ESILV\DetectionDeSession.cs" />
     <Compile Include="MEILLEUR-DEV-DE-FRANCE-MARS-2015\CloudTag.cs" />
@@ -64,6 +67,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="BATTLE-DEV-ESILV\ScoreDeScrabble.md" />
+    <None Include="BATTLE-DEV-ESILV\ExplorationRobotisée.md" />
+    <None Include="BATTLE-DEV-ESILV\LocalisationDeCible.md" />
+    <None Include="BATTLE-DEV-ESILV\DetectionDeSession.md" />
     <None Include="BATTLE-DEV-ESILV\README.md" />
     <None Include="MEILLEUR-DEV-DE-FRANCE-MARS-2015\JeuDeLaVie.md" />
     <None Include="MEILLEUR-DEV-DE-FRANCE-MARS-2015\README.md" />

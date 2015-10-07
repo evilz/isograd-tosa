@@ -1,29 +1,29 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Web.UI.WebControls;
+using System.Drawing;
 
 namespace TOSA.JeuDeLaVie
 {
     public static class Program
     {
-       
+
         private static void Main(string[] args)
         {
             try
             {
 
-               
-//            var sample = @"3
-//5 1 5 1
-//2 2 4 2
-//2 3 2 4";
-//                                            var input = new StringReader(sample);
-               var input = Console.In;
-                
+
+                //                var sample = @"3
+                //5 1 5 1
+                //2 2 4 2
+                //2 3 2 4";
+                //                var input = new StringReader(sample);
+                var input = Console.In;
+
                 var rectCount = int.Parse(input.ReadLine());
-                
+
                 var rectangles = Enumerable.Range(0, rectCount)
                     .Select(i => input.ReadLine().Split(' ').Select(int.Parse).ToArray())
                     .Select(i => new { X1 = i[0] - 1, Y1 = i[1] - 1, X2 = i[2], Y2 = i[3] })
@@ -35,60 +35,54 @@ namespace TOSA.JeuDeLaVie
                 Utils.LocalPrint(H.ToString());
                 Utils.LocalPrint(L.ToString());
 
-               
-               // var matrix = new bool[H, L];
-               
-                var aliveCells = new List<Tuple<int,int>>();
-                foreach (var r in rectangles)
-                {
-                    for (int x = r.X1; x < r.X2; x++)
-                        for (int y = r.Y1; y < r.Y2; y++)
-                        {
-                            aliveCells.Add(new Tuple<int, int>(x,y));
-                        }
-                }
+                var aliveCells = (from r in rectangles
+                                  from x in Enumerable.Range(r.X1, r.X2 - r.X1)
+                                  from y in Enumerable.Range(r.Y1, r.Y2 - r.Y1)
+                                  select new Point(x, y))
+                                .ToList();
 
-                Func<int,int, List<Tuple<int,int>>, bool> nextState = (X,Y, m) =>
-                  {
-                      var currentState = m.Any(tuple => tuple.Item1 == X && tuple.Item2 == Y);
-                      var left = m.Any(tuple => tuple.Item1 == (X - 1) && tuple.Item2 == Y);
-                      var top = m.Any(tuple => tuple.Item1 == X && tuple.Item2 == (Y - 1));
+                // var aliveCellsDebug = aliveCells.ToArray();
+                
+                
 
-                      if (!top && !left) { return false; }
-                      if (top && left) { return true; }
-                      return currentState;
-                  };
 
                 var turn = 0;
 
                 Utils.LocalPrint(aliveCells.Count.ToString());
-                
+
                 while (aliveCells.Any())
                 {
-                    var maxX = aliveCells.Max(tuple => tuple.Item1) + 1;
-                    var minX = aliveCells.Min(tuple => tuple.Item1) - 1;
+                    var maxX = aliveCells.Max(p => p.X) + 1;
+                    var minX = aliveCells.Min(p => p.X) - 1;
+                    minX = Math.Max(0, minX);
 
-                    var maxY = aliveCells.Max(tuple => tuple.Item2) + 1;
-                    var minY = aliveCells.Min(tuple => tuple.Item2) - 1;
+                    var maxY = aliveCells.Max(p => p.Y) + 1;
+                    var minY = aliveCells.Min(p => p.Y) - 1;
+                    minY = Math.Max(0, minY);
 
                     turn++;
-                   var newState = (from y in Enumerable.Range(minY, maxY)
-                        from x in Enumerable.Range(minX, maxX)
-                        select new Tuple<int,int>(x, y))
-                        .Where(cell => cell.Item1*cell.Item2 != 0)
-                        .Where(cell => nextState(cell.Item1,cell.Item2, aliveCells))
-                        .ToList();
 
-                    try
+                    var enumerable = (from x in Enumerable.Range(minX, maxX - minX)
+                                      from y in Enumerable.Range(minY, maxY - minY)
+                                      select new Point(x, y))
+                        .OrderBy(p => Math.Abs(maxX - p.X) + Math.Abs(maxY - p.Y))
+                        .ToArray();
+
+
+                    foreach (var cell in enumerable)
                     {
-                        aliveCells = newState;
-                    }
-                    catch (Exception)
-                    {
-                        Utils.LocalPrint("Impossible d affacter la nouvelle valeur");
+                        var currentExist = aliveCells.Any(p => p.X == cell.X && p.Y == cell.Y);
+                        var newState = NextState(cell, aliveCells);
+                        if (newState && currentExist)
+                        {
+                            aliveCells.Add(cell);
+                        }
+                        else if (currentExist)
+                        {
+                            aliveCells.Remove(cell);
+                        }
 
                     }
-
 
                     Utils.LocalPrint(aliveCells.Count.ToString());
 
@@ -103,6 +97,17 @@ namespace TOSA.JeuDeLaVie
                 Utils.LocalPrint(e + " " + e.StackTrace);
                 Console.WriteLine(-1);
             }
+        }
+
+        static bool NextState(Point cell, List<Point> m)
+        {
+            var currentState = m.Any(tuple => tuple.X == cell.X && tuple.Y == cell.Y);
+            var left = m.Any(tuple => tuple.X == (cell.X - 1) && tuple.Y == cell.Y);
+            var top = m.Any(tuple => tuple.X == cell.X && tuple.Y == (cell.Y - 1));
+
+            if (!top && !left) { return false; }
+            if (top && left) { return true; }
+            return currentState;
         }
 
     }

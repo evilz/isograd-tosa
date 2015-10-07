@@ -4,7 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 
-namespace TOSA.BATTLEDEVESILV.LocalisationDeCible
+namespace TOSA.BATTLEDEVESILV.ScoreDeScrabble
 {
     public class Program
     {
