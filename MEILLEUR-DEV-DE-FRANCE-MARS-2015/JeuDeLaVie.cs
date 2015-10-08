@@ -3,112 +3,119 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Drawing;
+using System.IO;
 
 namespace TOSA.JeuDeLaVie
 {
+    public class UnionFind
+    {
+        private List<int> pere;
+        private int[] rang;
+
+        public UnionFind(int n)
+        {
+            pere = new List<int>(Enumerable.Range(0,n));
+            rang = new int[n];
+        }
+
+        public int Find(int x)
+        {
+            if (pere[x] == x)
+                return x;
+            else
+            {
+                var repr_x = Find(pere[x]);
+                pere[x] = repr_x;
+                return repr_x;
+            }
+        }
+
+        public bool Union(int x, int y)
+        {
+            var repr_x = Find(x);
+            var repr_y = Find(y);
+            if(repr_x == repr_y) {  return false;}
+            if (rang[repr_x] == rang[repr_y])
+            {
+                rang[repr_x] += 1;
+                pere[repr_y] = repr_x;
+            }
+            else if(rang[repr_x] > rang[repr_y])
+            {
+                pere[repr_y] = repr_x;
+            }
+            else
+            {
+                pere[repr_x] = repr_y;
+            }
+            return true;
+        }
+    }
+    
     public static class Program
     {
 
         private static void Main(string[] args)
         {
-            try
+
+            var sample = @"3
+5 1 5 1
+2 2 4 2
+2 3 2 4";
+            var input = new StringReader(sample);
+            //var input = Console.In;
+
+            var N = int.Parse(input.ReadLine());
+
+            var uf = new UnionFind(N);
+
+            var max_x = new int[N];
+            var max_y = new int[N];
+            var min_c = new int[N];
+            var rectangles = new ArrayList(N);
+
+            for (int i = 0; i < N; i++)
             {
+                var points = input.ReadLine().Split(' ')
+                    .Select(int.Parse).ToArray();
+                var r = new {x1 = points[0] - 1, y1 = points[1] - 1, x2 = points[2], y2 = points[3]};
 
+                max_x[i] = r.x2;
+                max_y[i] = r.y2;
+                min_c[i] = r.x1 + r.y1;
 
-                //                var sample = @"3
-                //5 1 5 1
-                //2 2 4 2
-                //2 3 2 4";
-                //                var input = new StringReader(sample);
-                var input = Console.In;
-
-                var rectCount = int.Parse(input.ReadLine());
-
-                var rectangles = Enumerable.Range(0, rectCount)
-                    .Select(i => input.ReadLine().Split(' ').Select(int.Parse).ToArray())
-                    .Select(i => new { X1 = i[0] - 1, Y1 = i[1] - 1, X2 = i[2], Y2 = i[3] })
-                    .ToList();
-
-                var H = rectangles.Max(r => r.Y2) + 1;
-                var L = rectangles.Max(r => r.X2) + 1;
-
-                Utils.LocalPrint(H.ToString());
-                Utils.LocalPrint(L.ToString());
-
-                var aliveCells = (from r in rectangles
-                                  from x in Enumerable.Range(r.X1, r.X2 - r.X1)
-                                  from y in Enumerable.Range(r.Y1, r.Y2 - r.Y1)
-                                  select new Point(x, y))
-                                .ToList();
-
-                // var aliveCellsDebug = aliveCells.ToArray();
-                
-                
-
-
-                var turn = 0;
-
-                Utils.LocalPrint(aliveCells.Count.ToString());
-
-                while (aliveCells.Any())
+                for (int j = 0; j < i; j++)
                 {
-                    var maxX = aliveCells.Max(p => p.X) + 1;
-                    var minX = aliveCells.Min(p => p.X) - 1;
-                    minX = Math.Max(0, minX);
+                    dynamic rectA = rectangles[j];
 
-                    var maxY = aliveCells.Max(p => p.Y) + 1;
-                    var minY = aliveCells.Min(p => p.Y) - 1;
-                    minY = Math.Max(0, minY);
-
-                    turn++;
-
-                    var enumerable = (from x in Enumerable.Range(minX, maxX - minX)
-                                      from y in Enumerable.Range(minY, maxY - minY)
-                                      select new Point(x, y))
-                        .OrderBy(p => Math.Abs(maxX - p.X) + Math.Abs(maxY - p.Y))
-                        .ToArray();
-
-
-                    foreach (var cell in enumerable)
+                    if (!(rectA.x2 + 1 < r.x1 || r.x2 + 1 < rectA.x1 || rectA.y2 + 1 < r.y1 || r.y2 + 1 < rectA.y1) &&
+                        !(rectA.x2 + 1 == r.x1 && rectA.y2 + 1 == r.y1) &&
+                        !(r.x2 + 1 == rectA.x1 && r.y2 + 1 == rectA.y1))
                     {
-                        var currentExist = aliveCells.Any(p => p.X == cell.X && p.Y == cell.Y);
-                        var newState = NextState(cell, aliveCells);
-                        if (newState && currentExist)
-                        {
-                            aliveCells.Add(cell);
-                        }
-                        else if (currentExist)
-                        {
-                            aliveCells.Remove(cell);
-                        }
-
+                        var ii = uf.Find(i);
+                        var jj = uf.Find(j);
+                        uf.Union(i, j);
+                        var k = uf.Find(i);
+                        max_x[k] = new[] {max_x[k], max_x[ii], max_x[jj]}.Max();
+                        max_y[k] = new[] {max_y[k], max_y[ii], max_y[jj]}.Max();
+                        min_c[k] = new[] {min_c[k], min_c[ii], min_c[jj]}.Max();
                     }
 
-                    Utils.LocalPrint(aliveCells.Count.ToString());
-
-
                 }
-
-                Console.WriteLine(turn);
-
+                rectangles.Add(r);
             }
-            catch (Exception e)
+
+            var lifespan = 0;
+
+            for (int i = 0; i < N; i++)
             {
-                Utils.LocalPrint(e + " " + e.StackTrace);
-                Console.WriteLine(-1);
+                var k = uf.Find(i);
+                if (max_x[k] + max_y[k] - min_c[k] + 1 > lifespan)
+                    lifespan = max_x[k] + max_y[k] - min_c[k] + 1;
             }
+
+            Console.WriteLine(lifespan);
+
         }
-
-        static bool NextState(Point cell, List<Point> m)
-        {
-            var currentState = m.Any(tuple => tuple.X == cell.X && tuple.Y == cell.Y);
-            var left = m.Any(tuple => tuple.X == (cell.X - 1) && tuple.Y == cell.Y);
-            var top = m.Any(tuple => tuple.X == cell.X && tuple.Y == (cell.Y - 1));
-
-            if (!top && !left) { return false; }
-            if (top && left) { return true; }
-            return currentState;
-        }
-
     }
 }

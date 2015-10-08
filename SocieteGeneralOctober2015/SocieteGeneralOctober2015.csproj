@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0CB3D5F2-B9D6-42BC-8E4C-B45C1A9376E2}</ProjectGuid>
+    <ProjectGuid>{A0A107AA-1A51-4D83-90F8-795DBA53AD39}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TOSA</RootNamespace>
-    <AssemblyName>TOSA</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>SocieteGeneralOctober2015</RootNamespace>
+    <AssemblyName>SocieteGeneralOctober2015</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,13 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>TOSA.MEILLEUR.DEV.ITEC.evacuation.Program</StartupObject>
+    <StartupObject>SocieteGeneralOctober2015.CardNumberValidation.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,41 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BATTLE-DEV-ESILV\ScoreDeScrabble.cs" />
-    <Compile Include="BATTLE-DEV-ESILV\ExplorationRobotisée.cs" />
-    <Compile Include="BATTLE-DEV-ESILV\LocalisationDeCible.cs" />
-    <Compile Include="BATTLE-DEV-ESILV\DetectionDeSession.cs" />
-    <Compile Include="MEILLEUR-DEV-DE-FRANCE-MARS-2015\CloudTag.cs" />
-    <Compile Include="MEILLEUR-DEV-DE-FRANCE-MARS-2015\HashtagsTrendings.cs" />
-    <Compile Include="MEILLEUR-DEV-DE-FRANCE-MARS-2015\SalesForce.cs" />
-    <Compile Include="MEILLEUR-DEV-DE-FRANCE-MARS-2015\Ralonges.cs" />
-    <Compile Include="MEILLEUR-DEV-DE-FRANCE-MARS-2015\SablesMouvants.cs" />
-    <Compile Include="MEILLEUR-DEV-DE-FRANCE-MARS-2015\JeuDeLaVie.cs" />
-    <Compile Include="MEILLEUR-DEV-ITEC-2015\cashDispenser2.cs" />
-    <Compile Include="MEILLEUR-DEV-ITEC-2015\cashDispenser.cs" />
-    <Compile Include="MEILLEUR-DEV-ITEC-2015\evacuation.cs" />
-    <Compile Include="MEILLEUR-DEV-ITEC-2015\employees.cs" />
-    <Compile Include="MEILLEUR-DEV-ITEC-2015\cardnumber.cs" />
-    <Compile Include="MEILLEUR-DEV-ITEC-2015\Balance.cs" />
-    <Compile Include="TEMPLATE.cs" />
-    <Compile Include="MEILLEUR-DEV-DE-FRANCE-MARS-2015\Poker.cs" />
-    <Compile Include="Helpers.cs" />
+    <Compile Include="CardNumberValidation.cs" />
+    <Compile Include="HandlingCashRequests.cs" />
+    <Compile Include="ClosingBalance.cs" />
+    <Compile Include="PeakHours.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="BATTLE-DEV-ESILV\ScoreDeScrabble.md" />
-    <None Include="BATTLE-DEV-ESILV\ExplorationRobotisée.md" />
-    <None Include="BATTLE-DEV-ESILV\LocalisationDeCible.md" />
-    <None Include="BATTLE-DEV-ESILV\DetectionDeSession.md" />
-    <None Include="BATTLE-DEV-ESILV\README.md" />
-    <None Include="MEILLEUR-DEV-DE-FRANCE-MARS-2015\JeuDeLaVie.md" />
-    <None Include="MEILLEUR-DEV-DE-FRANCE-MARS-2015\README.md" />
+    <None Include="CardNumberValidation.md" />
+    <None Include="ClosingBalance.md" />
+    <None Include="PeakHours.md" />
+    <None Include="HandlingCashRequests.md" />
     <None Include="README.md" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="MEILLEUR-DEV-DE-FRANCE-MARS-2015\CTSTFR0034-3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
