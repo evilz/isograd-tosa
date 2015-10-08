@@ -46,18 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CardNumberValidation.cs" />
-    <Compile Include="HandlingCashRequests.cs" />
-    <Compile Include="ClosingBalance.cs" />
-    <Compile Include="PeakHours.cs" />
+    <Compile Include="2.CardNumberValidation.cs" />
+    <Compile Include="4.HandlingCashRequests.cs" />
+    <Compile Include="1.ClosingBalance.cs" />
+    <Compile Include="3.PeakHours.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="CardNumberValidation.md" />
-    <None Include="ClosingBalance.md" />
-    <None Include="PeakHours.md" />
-    <None Include="HandlingCashRequests.md" />
+    <None Include="2.CardNumberValidation.md" />
+    <None Include="1.ClosingBalance.md" />
+    <None Include="3.PeakHours.md" />
+    <None Include="4.HandlingCashRequests.md" />
     <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
