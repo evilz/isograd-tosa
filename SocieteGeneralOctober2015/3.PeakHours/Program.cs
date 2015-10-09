@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace TOSA.MEILLEUR.DEV.ITEC.PeakHours
+namespace SocieteGeneralOctober2015._3.PeakHours
 {
     public class Program
     {

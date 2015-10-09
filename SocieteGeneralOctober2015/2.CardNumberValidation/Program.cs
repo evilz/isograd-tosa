@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace SocieteGeneralOctober2015.CardNumberValidation
+namespace SocieteGeneralOctober2015._2.CardNumberValidation
 {
     public class Program
     {

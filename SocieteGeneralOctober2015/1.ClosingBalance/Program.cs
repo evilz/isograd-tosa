@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace SocieteGeneralOctober2015.ClosingBalance
+namespace SocieteGeneralOctober2015._1.ClosingBalance
 {
     public class Program
     {
