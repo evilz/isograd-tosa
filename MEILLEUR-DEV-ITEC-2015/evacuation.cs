@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
 
 namespace TOSA.MEILLEUR.DEV.ITEC.evacuation
 {
@@ -19,9 +15,17 @@ namespace TOSA.MEILLEUR.DEV.ITEC.evacuation
         static void Main(string[] args)
         {
 
-//            var sampleYES = @"1 6 4
-//100000 8 10 5 10 100000";
-//            var input = new StringReader(sample);
+            //            var sampleYES = @"1 6 4
+            //100000 8 10 5 10 100000";
+
+
+//            var sampleNO = @"4 5 2
+//100000 4 1 4 5
+//5 4 4 3 3
+//4 2 1 3 1
+//2 3 2 1 100000";
+
+                      //  var input = new StringReader(sampleNO);
             var input = Console.In;
 
             var size = input.ReadLine().Split(' ').Select(int.Parse).ToArray();
@@ -29,76 +33,60 @@ namespace TOSA.MEILLEUR.DEV.ITEC.evacuation
             var length = size[1];
             var height = size[2];
 
-            var matrix = Enumerable.Range(0, width)
-                .SelectMany(
-                    y =>
-                        input.ReadLine()
-                            .Split(' ')
-                            .Select(int.Parse)
-                            .Select((h, x) => new Tuple<Point, bool>(new Point(x, y), h >= height)))
-                            .Where(tuple => tuple.Item2)
-                            .Select(tuple => tuple.Item1)
-                            .ToList();
+            var map = (from i in Enumerable.Range(0, width)
+                       from line in input.ReadLine().Split(new[] { ' ' }).ToArray()
+                       select int.Parse(line) >= height)
+                    .ToArray();
+            
+            var start = new Point(0, 0);
+            var end = new Point(width-1, length-1);
 
-           var start = matrix.First(p => p.X == 0 && p.Y == 0);
-           var end = matrix.First(p => p.X == height - 1 && p.Y == width - 1);
+            Func<int, int, int> GetIndex = (x, y) => { return x*length + y; };
 
             Func<Point, IEnumerable<Point>> getNeighbours = n =>
             {
                 var x = n.X;
                 var y = n.Y;
-                //top
-                var top = matrix.FirstOrDefault(p => p.Y == y - 1);
-                var right = matrix.FirstOrDefault(p => p.X == x + 1);
-                var bottom = matrix.FirstOrDefault(p => p.Y == y - 1);
-                var left = matrix.FirstOrDefault(p => p.X == x + 1);
-
-
                 var neighbours = new List<Point>();
 
-                if (top != Point.Empty) neighbours.Add(top);
-                if (right != Point.Empty) neighbours.Add(right);
-                if (bottom != Point.Empty) neighbours.Add(bottom);
-                if (left != Point.Empty) neighbours.Add(left);
+                var index = -1;
+                //top
+                index = GetIndex(x, y - 1);
+                if (y > 0 && index < length * width && map[index] ) { neighbours.Add(new Point(x, y - 1)); }
+                //right
+                index = GetIndex(x+1, y);
+                if (x<width && index < length * width && map[index]) { neighbours.Add(new Point(x + 1, y)); }
+                //bottom
+                index = GetIndex(x, y + 1);
+                if (y < length && index < length * width && map[index]) { neighbours.Add(new Point(x, y + 1)); }
+                // left
+                index = GetIndex(x - 1, y);
+                if (x > 0 && index < length * width && map[index]) { neighbours.Add(new Point(x - 1, y)); }
 
+                var t = neighbours.ToArray();
                 return neighbours;
 
             };
+            
+            Func<Point, Point, double> manathan = (node1, node2) => { return Math.Abs(node1.X - node2.X) + Math.Abs(node1.Y - node2.Y); };
+            
+            Func<Point, double> estimate = point => { return manathan(point, end); };
 
 
-            Func<Point, Point, double> manathan = (node1, node2) =>
-            {
-                return Math.Abs(node1.X - node2.X) + Math.Abs(node1.Y - node2.Y);
-            };
+            var path = FindPath(start, end, getNeighbours, manathan, estimate);
 
-
-            Func<Point, double> estimate = point =>
-            {
-                return manathan(point, end);
-            };
-
-
-            var path = FindPath<Point>(start, end, getNeighbours, manathan, estimate);
-
-            if (path == null)
-            {
-                Console.WriteLine("NO");
-            }
-            else
-            {
-                Console.WriteLine("YES");
-            }
+            Console.WriteLine(path == null ? "NO" : "YES");
         }
 
-        public static Path<N> FindPath<N>(
-       N start,
-       N destination,
-       Func<N,IEnumerable<N>> getNeighbours, Func<N, N, double> distance,
-       Func<N, double> estimate)
+        public static Path<T> FindPath<T>(
+       T start,
+       T destination,
+       Func<T, IEnumerable<T>> getNeighbours, Func<T, T, double> distance,
+       Func<T, double> estimate)
         {
-            var closed = new HashSet<N>();
-            var queue = new PriorityQueue<double, Path<N>>();
-            queue.Enqueue(0, new Path<N>(start));
+            var closed = new HashSet<T>();
+            var queue = new PriorityQueue<double, Path<T>>();
+            queue.Enqueue(0, new Path<T>(start));
             while (!queue.IsEmpty)
             {
                 var path = queue.Dequeue();
@@ -109,7 +97,7 @@ namespace TOSA.MEILLEUR.DEV.ITEC.evacuation
                 closed.Add(path.LastStep);
 
                 var neighbours = getNeighbours(path.LastStep);
-                foreach (N n in neighbours)
+                foreach (T n in neighbours)
                 {
                     double d = distance(path.LastStep, n);
                     var newPath = path.AddStep(n, d);
@@ -119,11 +107,6 @@ namespace TOSA.MEILLEUR.DEV.ITEC.evacuation
             return null;
         }
 
-    }
-
-    public interface IHasNeighbours<T>
-    {
-        IEnumerable<T> Neighbours { get; }
     }
 
     class PriorityQueue<P, V>

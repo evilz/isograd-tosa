@@ -19,9 +19,14 @@ namespace SocieteGeneralOctober2015._3.PeakHours
                 .Select(ints => ints)
                 .ToList();
             
-            var max = workTimes.Select(ints => ints.Count()).First();
+            var max = workTimes.Select(ints => ints.Count()).Max();
 
-            var result = string.Join(" ", workTimes.Where(i => i.Count() == max).Select(ints => ints.Key));
+            var resultworkTimes = workTimes
+                .Where(i => i.Count() == max)
+                .Select(ints => ints.Key)
+                .OrderBy(i => i);
+
+            var result = string.Join(" ", resultworkTimes);
             Console.WriteLine(result);
         }
     }

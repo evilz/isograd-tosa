@@ -34,10 +34,11 @@ namespace SocieteGeneralOctober2015.HandlingCashRequests
                 amount -= toUse;
             }
 
-            foreach (var pair in dictionary)
-            {
-                Console.Write(pair.Value + " " + pair.Key + " ");
-            }
+
+            var result = string.Join(" ", dictionary.Select(pair => pair.Value + " " + pair.Key));
+
+            Console.Write(result);
+            
         }
     }
 }
