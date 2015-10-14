@@ -31,11 +31,6 @@ namespace SocieteGeneralOctober2015._7.FireAlarms
             var fires = (from i in Enumerable.Range(0, nbFireAlarm)
                        select input.ReadLine().Split(new[] { ' ' }).Select(int.Parse).ToArray())
                         .ToArray();
-
-            foreach (var fire in fires)
-            {
-                var distance = GetClosestFireStation(map, fire[0], fire[1]);
-            }
         }
     }
 }
