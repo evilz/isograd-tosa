@@ -38,6 +38,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,9 +52,15 @@
     <Compile Include="4.HandlingCashRequests\Program.cs" />
     <Compile Include="1.ClosingBalance\Program.cs" />
     <Compile Include="3.PeakHours\Program.cs" />
+    <Compile Include="5.CashUsage\Program.cs" />
+    <Compile Include="6.Flooding\Program.cs" />
+    <Compile Include="7.FireAlarms\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="5.CashUsage\README.md" />
+    <None Include="6.Flooding\README.md" />
+    <None Include="7.FireAlarms\README.md" />
     <None Include="App.config" />
     <None Include="2.CardNumberValidation\Readme.md" />
     <None Include="1.ClosingBalance\Readme.md" />
@@ -62,6 +70,34 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="1.ClosingBalance\samples\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="2.CardNumberValidation\samples\input1.txt" />
+    <Content Include="2.CardNumberValidation\samples\input2.txt" />
+    <Content Include="2.CardNumberValidation\samples\input3.txt" />
+    <Content Include="2.CardNumberValidation\samples\output1.txt" />
+    <Content Include="2.CardNumberValidation\samples\output2.txt" />
+    <Content Include="2.CardNumberValidation\samples\output3.txt" />
+    <Content Include="3.PeakHours\samples\input1.txt" />
+    <Content Include="3.PeakHours\samples\input2.txt" />
+    <Content Include="3.PeakHours\samples\output1.txt" />
+    <Content Include="3.PeakHours\samples\output2.txt" />
+    <Content Include="4.HandlingCashRequests\samples\input1.txt" />
+    <Content Include="4.HandlingCashRequests\samples\input2.txt" />
+    <Content Include="4.HandlingCashRequests\samples\output1.txt" />
+    <Content Include="4.HandlingCashRequests\samples\output2.txt" />
+    <Content Include="5.CashUsage\samples\input1.txt" />
+    <Content Include="5.CashUsage\samples\input2.txt" />
+    <Content Include="5.CashUsage\samples\output1.txt" />
+    <Content Include="5.CashUsage\samples\output2.txt" />
+    <Content Include="6.Flooding\samples\input1.txt" />
+    <Content Include="6.Flooding\samples\input2.txt" />
+    <Content Include="6.Flooding\samples\output1.txt" />
+    <Content Include="6.Flooding\samples\output2.txt" />
+    <Content Include="7.FireAlarms\samples\input1.txt" />
+    <Content Include="7.FireAlarms\samples\input2.txt" />
+    <Content Include="7.FireAlarms\samples\output1.txt" />
+    <Content Include="7.FireAlarms\samples\output2.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -6,6 +6,6 @@
 - [Card number validation](2.CardNumberValidation)
 - [Peak Hour(s)](3.PeakHours)
 - [Handling cash requests](4.HandlingCashRequests)
-- Cash usage
-- Flooding
-- Fire alarms
+- [Cash usage](5.CashUsage)
+- [Flooding](6.Flooding)
+- [Fire alarms](7.FireAlarms)
