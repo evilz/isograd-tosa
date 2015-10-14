@@ -1,11 +1,22 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 
 namespace SocieteGeneralOctober2015.Flooding
 {
+    public struct Point
+    {
+        public int X { get; set; }
+        public int Y { get; set; }
+
+        public Point(int x,int y)
+        {
+            X = x;
+            Y = y;
+        }
+    }
+
     public class Program
     {
         static void Main(string[] args)
