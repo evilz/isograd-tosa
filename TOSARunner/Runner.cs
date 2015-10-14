@@ -32,7 +32,7 @@ namespace TOSARunner
                 GenerateAndExecute(programToTest);
             }
             
-            Console.ReadLine();
+            //Console.ReadLine();
         }
 
         private static IEnumerable<FileInfo> GetAllContestPrograms(string contestPath)
