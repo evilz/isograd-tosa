@@ -4,15 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0CB3D5F2-B9D6-42BC-8E4C-B45C1A9376E2}</ProjectGuid>
+    <ProjectGuid>{3B4E909F-47B1-4CCF-AFE2-1148C6096EFB}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TOSA</RootNamespace>
-    <AssemblyName>TOSA</AssemblyName>
+    <RootNamespace>BattleDevRegionsJobNovembre2015</RootNamespace>
+    <AssemblyName>BattleDevRegionsJobNovembre2015</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,13 +32,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>TOSA.MEILLEUR.DEV.ITEC.evacuation.Program</StartupObject>
+    <StartupObject>BattleDevRegionsJobNovembre2015._2.TV.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,23 +45,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BATTLE-DEV-ESILV\ScoreDeScrabble.cs" />
-    <Compile Include="BATTLE-DEV-ESILV\ExplorationRobotisée.cs" />
-    <Compile Include="BATTLE-DEV-ESILV\LocalisationDeCible.cs" />
-    <Compile Include="BATTLE-DEV-ESILV\DetectionDeSession.cs" />
-    <Compile Include="TEMPLATE.cs" />
-    <Compile Include="Helpers.cs" />
+    <Compile Include="1.Moyenne_du_bulletin_scolaire\Program.cs" />
+    <Compile Include="2.TV\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="1.Moyenne_du_bulletin_scolaire\README.md" />
+    <None Include="2.TV\README.md" />
     <None Include="App.config" />
-    <None Include="BATTLE-DEV-ESILV\ScoreDeScrabble.md" />
-    <None Include="BATTLE-DEV-ESILV\ExplorationRobotisée.md" />
-    <None Include="BATTLE-DEV-ESILV\LocalisationDeCible.md" />
-    <None Include="BATTLE-DEV-ESILV\DetectionDeSession.md" />
-    <None Include="BATTLE-DEV-ESILV\README.md" />
     <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="3.Scrabble\" />
+    <Folder Include="4.Logigraphes\" />
+    <Folder Include="5.Ronronnement\" />
+    <Folder Include="6.Centrale électrique\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="1.Moyenne_du_bulletin_scolaire\samples\input1.txt" />
+    <Content Include="1.Moyenne_du_bulletin_scolaire\samples\input2.txt" />
+    <Content Include="1.Moyenne_du_bulletin_scolaire\samples\output1.txt" />
+    <Content Include="1.Moyenne_du_bulletin_scolaire\samples\output2.txt" />
+    <Content Include="2.TV\CTSTFR0049.jpg" />
+    <Content Include="2.TV\samples\input1.txt" />
+    <Content Include="2.TV\samples\input2.txt" />
+    <Content Include="2.TV\samples\output1.txt" />
+    <Content Include="2.TV\samples\output2.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

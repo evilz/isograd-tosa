@@ -4,15 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0CB3D5F2-B9D6-42BC-8E4C-B45C1A9376E2}</ProjectGuid>
+    <ProjectGuid>{2973B524-932D-4BFA-8FCA-F2E51CDE0107}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TOSA</RootNamespace>
-    <AssemblyName>TOSA</AssemblyName>
+    <RootNamespace>MeilleurDevDeFranceMars2015</RootNamespace>
+    <AssemblyName>MeilleurDevDeFranceMars2015</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,14 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>TOSA.MEILLEUR.DEV.ITEC.evacuation.Program</StartupObject>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,23 +42,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BATTLE-DEV-ESILV\ScoreDeScrabble.cs" />
-    <Compile Include="BATTLE-DEV-ESILV\ExplorationRobotisée.cs" />
-    <Compile Include="BATTLE-DEV-ESILV\LocalisationDeCible.cs" />
-    <Compile Include="BATTLE-DEV-ESILV\DetectionDeSession.cs" />
-    <Compile Include="TEMPLATE.cs" />
-    <Compile Include="Helpers.cs" />
+    <Compile Include="CloudTag.cs" />
+    <Compile Include="HashtagsTrendings.cs" />
+    <Compile Include="JeuDeLaVie.cs" />
+    <Compile Include="Poker.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils.cs" />
+    <Compile Include="Ralonges.cs" />
+    <Compile Include="SablesMouvants.cs" />
+    <Compile Include="SalesForce.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="BATTLE-DEV-ESILV\ScoreDeScrabble.md" />
-    <None Include="BATTLE-DEV-ESILV\ExplorationRobotisée.md" />
-    <None Include="BATTLE-DEV-ESILV\LocalisationDeCible.md" />
-    <None Include="BATTLE-DEV-ESILV\DetectionDeSession.md" />
-    <None Include="BATTLE-DEV-ESILV\README.md" />
+    <None Include="JeuDeLaVie.md" />
     <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CTSTFR0034-3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
