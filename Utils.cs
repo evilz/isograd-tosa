@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace TOSA
+namespace System
 {
     public static class Utils
     {
@@ -13,9 +9,12 @@ namespace TOSA
             Console.WriteLine(message);
         }
 
-        public static void LocalPrintArray(IEnumerable<object> collection)
+        public static void LocalPrintArray(IEnumerable<object> source)
         {
-            collection.ForEach(Console.WriteLine);
+            foreach (var o in source)
+            {
+                Console.WriteLine(o);
+            }
         }
     }
 }

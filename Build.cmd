@@ -1,0 +1,1 @@
+msbuild.exe "TOSARunner/TOSARunner.csproj" && TOSARunner\bin\Debug\TOSARunner.exe "."

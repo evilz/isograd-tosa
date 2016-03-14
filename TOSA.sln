@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeilleurDevDeFranceMars2015
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleDevRegionsJobNovembre2015", "BattleDevRegionsJobNovembre2015\BattleDevRegionsJobNovembre2015.csproj", "{3B4E909F-47B1-4CCF-AFE2-1148C6096EFB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeilleurDevDeFranceMars2016", "MeilleurDevDeFranceMars2016\MeilleurDevDeFranceMars2016.csproj", "{B1B54256-B21F-499A-B870-94048AF7E4E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{3B4E909F-47B1-4CCF-AFE2-1148C6096EFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B4E909F-47B1-4CCF-AFE2-1148C6096EFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B4E909F-47B1-4CCF-AFE2-1148C6096EFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1B54256-B21F-499A-B870-94048AF7E4E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1B54256-B21F-499A-B870-94048AF7E4E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1B54256-B21F-499A-B870-94048AF7E4E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1B54256-B21F-499A-B870-94048AF7E4E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
