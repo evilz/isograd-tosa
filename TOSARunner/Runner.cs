@@ -32,7 +32,7 @@ namespace TOSARunner
                 GenerateAndExecute(programToTest);
             }
             
-            //Console.ReadLine();
+            Console.ReadLine();
         }
 
         private static IEnumerable<FileInfo> GetAllContestPrograms(string contestPath)
@@ -123,6 +123,7 @@ namespace TOSARunner
 
             compilerParameters.ReferencedAssemblies.Add("System.dll");
             compilerParameters.ReferencedAssemblies.Add("System.Core.dll");
+            compilerParameters.ReferencedAssemblies.Add("System.Drawing.dll");
 
             var codeProvider = new CSharpCodeProvider(new Dictionary<String, String> { { "CompilerVersion", "v4.0" } });
 

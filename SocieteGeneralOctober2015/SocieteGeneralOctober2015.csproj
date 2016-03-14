@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SocieteGeneralOctober2015</RootNamespace>
     <AssemblyName>SocieteGeneralOctober2015</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>SocieteGeneralOctober2015._1.ClosingBalance.Program</StartupObject>
+    <StartupObject>SocieteGeneralOctober2015._7.FireAlarms.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
