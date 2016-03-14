@@ -46,7 +46,7 @@ namespace TOSARunner
         {
             if (programToTest.Directory == null) return;
 
-            Process.Start("appveyor", "AddMessage " + programToTest.Directory.Name);
+            Process.Start("appveyor.exe", "AddMessage " + programToTest.Directory.Name);
             Console.WriteLine("##### " + programToTest.Directory.Name + " #####");
             Console.WriteLine();
 
@@ -163,7 +163,7 @@ namespace TOSARunner
             Console.Write("GOOD ");
             Console.ResetColor();
             Console.Write(result);
-            Process.Start("Add-AppveyorTest", "-Name " + result);
+            Process.Start("appveyor.exe", "AddTest " + result);
         }
 
         private static void WriteRedResult(string result)
