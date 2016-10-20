@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>BattleDevRegionsJobNovembre2015._2.TV.Program</StartupObject>
+    <StartupObject>BattleDevRegionsJobNovembre2015._4.Logigraphes.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -47,17 +47,19 @@
   <ItemGroup>
     <Compile Include="1.Moyenne_du_bulletin_scolaire\Program.cs" />
     <Compile Include="2.TV\Program.cs" />
+    <Compile Include="3.Scrabble\Program.cs" />
+    <Compile Include="4.Logigraphes\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="1.Moyenne_du_bulletin_scolaire\README.md" />
     <None Include="2.TV\README.md" />
+    <None Include="3.Scrabble\README.md" />
+    <None Include="4.Logigraphes\README.md" />
     <None Include="App.config" />
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="3.Scrabble\" />
-    <Folder Include="4.Logigraphes\" />
     <Folder Include="5.Ronronnement\" />
     <Folder Include="6.Centrale électrique\" />
   </ItemGroup>
@@ -71,6 +73,30 @@
     <Content Include="2.TV\samples\input2.txt" />
     <Content Include="2.TV\samples\output1.txt" />
     <Content Include="2.TV\samples\output2.txt" />
+    <Content Include="3.Scrabble\samples\input1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="3.Scrabble\samples\input2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="3.Scrabble\samples\output1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="3.Scrabble\samples\output2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="4.Logigraphes\samples\input1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="4.Logigraphes\samples\input2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="4.Logigraphes\samples\output1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="4.Logigraphes\samples\output2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

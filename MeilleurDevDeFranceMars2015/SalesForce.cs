@@ -15,7 +15,7 @@ namespace TOSA.SalesForce
             var countries = input.ReadLine().Split(';');
 
             var clients = Enumerable.Range(0, linesCount)
-                .Select(i => input.ExtractValues<string>(';').ToArray())
+                .Select(i => input.ReadLine().Split(';').ToArray())
                 .Select(client => new 
                 {
                     Nom = client[0],

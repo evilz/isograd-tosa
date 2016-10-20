@@ -26,13 +26,26 @@ namespace TOSARunner
             var contestPath = args[0];
 
             var allPrograms = GetAllContestPrograms(contestPath);
-            
+
             foreach (var programToTest in allPrograms)
             {
-                GenerateAndExecute(programToTest);
+                try
+                {
+                    GenerateAndExecute(programToTest);
+                }
+                catch (Exception e)
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                    Console.Write("Error: ");
+                    Console.ResetColor();
+                    Console.Write(e.Message);
+                   
+                    
+                }
+                
             }
-            
-           // Console.ReadLine();
+
+            // Console.ReadLine();
         }
 
         private static IEnumerable<FileInfo> GetAllContestPrograms(string contestPath)
@@ -46,7 +59,6 @@ namespace TOSARunner
         {
             if (programToTest.Directory == null) return;
 
-            Process.Start("appveyor.exe", "AddMessage " + programToTest.Directory.Name);
             Console.WriteLine("##### " + programToTest.Directory.Name + " #####");
             Console.WriteLine();
 
@@ -90,7 +102,7 @@ namespace TOSARunner
                 Console.ResetColor();
                 Console.Write(e.Message);
             }
-           
+
         }
 
         private static void StartProcessWithInput(string generatedExe, string input)
@@ -154,7 +166,7 @@ namespace TOSARunner
             {
                 WriteGoodResult(e.Data);
             }
-            
+
         }
 
         private static void WriteGoodResult(string result)
@@ -163,7 +175,6 @@ namespace TOSARunner
             Console.Write("GOOD ");
             Console.ResetColor();
             Console.Write(result);
-            Process.Start("appveyor.exe", "AddTest " + result);
         }
 
         private static void WriteRedResult(string result)

@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BattleDevRegionsJobNovembre2015._1.Moyenne_du_bulletin_scolaire
+namespace MeilleurDevDeFranceMars2016._0.Template
 {
     public class Program
     {
         static void Main(string[] args)
         {
             var input = Console.In;
+            //var input = File.OpenText("CURRENT_FOLDER_NAME/samples/input1.txt");
 
             // READ COUNT
             var count = int.Parse(input.ReadLine());
@@ -23,8 +24,8 @@ namespace BattleDevRegionsJobNovembre2015._1.Moyenne_du_bulletin_scolaire
                 .ToArray();
 
 
-            Utils.LocalPrint(count.ToString());
-            Utils.LocalPrintArray(new List<object>());
+          //  Utils.LocalPrint(count.ToString());
+          //  Utils.LocalPrintArray(new List<object>());
 
             Console.WriteLine(string.Empty);
 

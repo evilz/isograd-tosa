@@ -16,6 +16,7 @@ namespace TOSA.CloudTag
                 .GroupBy(s => s)
                 .OrderByDescending(group => group.Count())
                 .Take(5)
+                .ToList()
                 .ForEach(pair => Console.WriteLine(pair.Key + " " + pair));
         }
     }

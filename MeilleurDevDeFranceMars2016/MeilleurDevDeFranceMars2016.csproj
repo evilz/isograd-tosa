@@ -31,9 +31,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>MeilleurDevDeFranceMars2016._1._3.Friandises.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,17 +46,103 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="1.3.Friandises\Program.cs" />
+    <Compile Include="3.dico\Program.cs" />
+    <Compile Include="2bis\Program.cs" />
+    <Compile Include="1bis.pub\Program.cs" />
+    <Compile Include="1.2.Snake\Program.cs" />
+    <Compile Include="1.1Peugeot\Program.cs" />
     <Compile Include="0.Template\Program.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="1.3.Friandises\README.md" />
+    <None Include="3.dico\README.md" />
+    <None Include="2bis\README.md" />
+    <None Include="1bis.pub\README.md" />
+    <None Include="1.2.Snake\README.md" />
+    <None Include="1.1Peugeot\README.md" />
     <None Include="0.Template\README.md" />
     <None Include="App.config" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="1.1Peugeot\samples\input1.txt" />
+    <Content Include="1.1Peugeot\samples\input2.txt" />
+    <Content Include="1.1Peugeot\samples\output1.txt" />
+    <Content Include="1.1Peugeot\samples\output2.txt" />
+    <Content Include="1.3.Friandises\samples\input1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="1.3.Friandises\samples\input2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="1.3.Friandises\samples\input3.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="1.3.Friandises\samples\input4.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="1.3.Friandises\samples\output1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="1.3.Friandises\samples\output2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="1.3.Friandises\samples\output3.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="1.3.Friandises\samples\output4.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="3.dico\samples\input1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="3.dico\samples\input2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="3.dico\samples\input3.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="3.dico\samples\output1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2bis\samples\input1.txt" />
+    <Content Include="2bis\samples\output1.txt" />
+    <Content Include="1bis.pub\samples\input1.txt" />
+    <Content Include="1bis.pub\samples\output1.txt" />
+    <Content Include="1.2.Snake\samples\input1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="1.2.Snake\samples\input2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="1.2.Snake\samples\input3.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="1.2.Snake\samples\input4.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="1.2.Snake\samples\output1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="0.Template\samples\input1.txt" />
     <Content Include="0.Template\samples\output1.txt" />
+    <Content Include="1.2.Snake\samples\output2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="1.2.Snake\samples\output3.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="1.2.Snake\samples\output4.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="3.dico\samples\output2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="3.dico\samples\output3.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TOSA.csproj">
@@ -60,6 +150,7 @@
       <Name>TOSA</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
