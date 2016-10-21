@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>SocieteGeneralOctober2016._1.a.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -61,6 +64,12 @@
     <Folder Include="4.d\samples\" />
     <Folder Include="5.e\samples\" />
     <Folder Include="6.f\samples\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TOSA.csproj">
+      <Project>{0cb3d5f2-b9d6-42bc-8e4c-b45c1a9376e2}</Project>
+      <Name>TOSA</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

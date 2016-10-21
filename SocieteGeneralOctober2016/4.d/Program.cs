@@ -1,22 +1,28 @@
 ﻿using System;
 using System.Linq;
 
-namespace SocieteGeneralOctober2015._1.ClosingBalance
+namespace SocieteGeneralOctober2016._4.d
 {
     public class Program
     {
         static void Main(string[] args)
         {
             var input = Console.In;
+            //var input = new StringReader("string");
 
-            var openingBalance = int.Parse(input.ReadLine());
             var count = int.Parse(input.ReadLine());
 
-            var final = Enumerable.Range(0, count)
-                          .Select(i => input.ReadLine().Split(' ').Select(int.Parse).First())
-                          .Aggregate(openingBalance, (current, transaction) => current + transaction);
+            var many = Enumerable.Range(0, count)
+                .Select(_ =>
+                    input.ReadLine()
+                        .Split(' ')
+                        .Select(int.Parse)
+                        .ToArray())
+                        .ToArray();
 
-            Console.WriteLine(final);
+            var output = "";
+
+            Console.WriteLine(output);
 
         }
     }
