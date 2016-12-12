@@ -8,19 +8,19 @@ namespace SocieteGeneralOctober2016._3.c
         static void Main(string[] args)
         {
             var input = Console.In;
-            //var input = new StringReader("string");
+            //var input = new StringReader("01000110\n01000001\n01000011\n01000101\n01000010\n01001111\n01001111\n01001011");
 
-            var count = int.Parse(input.ReadLine());
-
-            var many = Enumerable.Range(0, count)
+           
+            var many = Enumerable.Range(0, 8)
                 .Select(_ =>
-                    input.ReadLine()
-                        .Split(' ')
-                        .Select(int.Parse)
-                        .ToArray())
+                {
+                    var raw = Convert.ToInt32(input.ReadLine(),2);
+                    var c = (char)raw;
+                    return c;
+                })
                         .ToArray();
 
-            var output = "";
+            var output = string.Join(String.Empty,many);
 
             Console.WriteLine(output);
 
